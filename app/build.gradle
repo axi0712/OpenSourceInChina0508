@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.example.administrator.opensourceinchina0508"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -26,4 +26,12 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.androidkun:pulltorefreshrecyclerview:1.0.6'
+    compile('com.thoughtworks.xstream:xstream:1.4.7') {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.jude:rollviewpager:1.2.9'
 }

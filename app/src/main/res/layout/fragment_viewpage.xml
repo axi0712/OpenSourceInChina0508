@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fff"
+   android:layout_width="match_parent"
+    android:layout_height="170dp">
+<android.support.v4.view.ViewPager
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:id="@+id/fragment_viewpager"
+    />
+
+    <RadioGroup
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+        <RadioButton
+            android:id="@+id/fragment_viewpager_circle_one"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/radiobutton"
+            android:button="@null"
+            android:layout_marginLeft="2dp"
+            />
+        <RadioButton
+            android:id="@+id/fragment_viewpager_circle_two"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/radiobutton"
+            android:button="@null"
+            android:layout_marginLeft="2dp"
+            />
+        <RadioButton
+            android:id="@+id/fragment_viewpager_circle_three"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/radiobutton"
+            android:button="@null"
+            android:layout_marginLeft="2dp"
+            />
+    </RadioGroup>
+</RelativeLayout>

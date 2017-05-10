@@ -2,16 +2,112 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
+    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="com.example.administrator.opensourceinchina0508.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <RelativeLayout
+        android:id="@+id/main_rela_title"
+        android:background="@drawable/icon_record_layout_nor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="综合"
+            android:layout_centerVertical="true"
+            android:id="@+id/main_text_title"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            />
+        <ImageView
+            android:padding="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_image_search"
+            android:src="@drawable/btn_search_normal"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/main_Frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_rela_title"
+        android:layout_weight="1" />
+    <RadioGroup
+        android:id="@+id/Main_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <RadioButton
+            android:id="@+id/main_news"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/main_zonghe"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:text="综合"
+            android:textColor="@drawable/synthesize_text" />
+
+        <RadioButton
+            android:id="@+id/main_move"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_tweet"
+            android:gravity="center"
+            android:text="动弹"
+            android:layout_gravity="center_vertical"
+            android:textColor="@drawable/synthesize_text" />
+
+        <RadioButton
+            android:layout_marginTop="5dp"
+            android:id="@+id/main_iamge_build"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_build"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/main_discover"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_discover"
+            android:gravity="center"
+            android:text="发现"
+            android:layout_gravity="center_vertical"
+
+            android:textColor="@drawable/synthesize_text" />
+
+        <RadioButton
+            android:id="@+id/main_mine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_mine"
+            android:gravity="center"
+            android:text="我的"
+            android:layout_gravity="center_vertical"
+
+            android:textColor="@drawable/synthesize_text" />
+
+    </RadioGroup>
 </RelativeLayout>
