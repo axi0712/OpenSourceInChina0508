@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.opensourceinchina0508.model.base.BaseActivity;
+import com.example.administrator.opensourceinchina0508.model.fragment.Fragment_Mine;
 import com.example.administrator.opensourceinchina0508.model.fragment.tweet.Fragment_Tweet;
 import com.example.administrator.opensourceinchina0508.model.fragment.zonghe.Fragment_ZongHe;
 
@@ -98,6 +99,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.main_discover:
                 mMainTextTitle.setText("发现");
+                break;
+            case R.id.main_mine:
+                tra = man.beginTransaction();
+                tra.replace(R.id.main_Frame,new Fragment_Mine());
+                tra.commit();
                 break;
         }
     }

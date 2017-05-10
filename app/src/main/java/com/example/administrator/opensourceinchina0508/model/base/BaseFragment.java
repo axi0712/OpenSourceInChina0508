@@ -57,10 +57,10 @@ public abstract class BaseFragment extends Fragment {
             onShow();
     }
     public void onHidden(){
-     updateTitleBar();
+
     }
     public void onShow(){
-        updateTitleBar();
+
     }
     @Override
     public void onDestroyView() {

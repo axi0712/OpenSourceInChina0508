@@ -73,6 +73,18 @@ public class Fragment_Tweet extends BaseFragment {
     }
 
     @Override
+    public void onShow() {
+        super.onShow();
+        updateTitleBar();
+    }
+
+    @Override
+    public void onHidden() {
+        super.onHidden();
+        updateTitleBar();
+    }
+
+    @Override
     public void setParams(Bundle bundle) {
 
     }

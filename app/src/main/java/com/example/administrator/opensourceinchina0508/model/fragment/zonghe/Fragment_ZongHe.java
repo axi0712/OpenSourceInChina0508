@@ -68,7 +68,6 @@ public class Fragment_ZongHe extends BaseFragment {
         super.onHidden();
         updateTitleBar();
     }
-
     @Override
     protected void updateTitleBar() {
         if (App.base instanceof MainActivity) {
@@ -78,7 +77,7 @@ public class Fragment_ZongHe extends BaseFragment {
 
         }
         if (App.base instanceof MainActivity) {
-            ((MainActivity) App.base).getmMainTextTitle().setText("综合");
+            ((MainActivity) App.base).getmMainTextTitle().setText("动弹");
         }
     }
 
