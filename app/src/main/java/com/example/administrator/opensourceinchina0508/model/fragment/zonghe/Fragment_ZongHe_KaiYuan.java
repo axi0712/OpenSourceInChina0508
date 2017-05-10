@@ -28,6 +28,7 @@ import com.example.administrator.opensourceinchina0508.model.http.http.MyCallBac
 import com.example.administrator.opensourceinchina0508.model.http.http.Parsing;
 import com.example.administrator.opensourceinchina0508.model.http.http.ParsingImple;
 import com.example.administrator.opensourceinchina0508.model.util.Dates;
+import com.example.administrator.opensourceinchina0508.model.util.MyContentLinearLayoutManager;
 import com.example.administrator.opensourceinchina0508.model.util.UtilsData;
 import com.jude.rollviewpager.RollPagerView;
 import com.thoughtworks.xstream.XStream;
@@ -91,7 +92,7 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
         LinearLayoutManager linear = new LinearLayoutManager(App.base);
         getRetrofit();
         mView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(),DividerItemDecoration.VERTICAL));
-        mView.setLayoutManager(linear);
+        mView.setLayoutManager(new MyContentLinearLayoutManager(mView.getContext()));
 
         mView.addHeaderView(v);
         mView.setPullRefreshEnabled(true);//下拉刷新

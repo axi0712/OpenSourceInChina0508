@@ -40,7 +40,10 @@ public class Fragment_Tweet extends BaseFragment {
     @Override
     protected void initData() {
         Fragment_Tweet_Hot hot = new Fragment_Tweet_Hot();
+        Fragment_Tweet_new news = new Fragment_Tweet_new();
         mFraList.add(hot);
+        mFraList.add(news);
+        mStrList.add("最新动弹");
         mStrList.add("热门动弹");
         mTab.setTabMode(TabLayout.MODE_FIXED);
         TabLayoutAdapter mAdapter = new TabLayoutAdapter(getActivity().getSupportFragmentManager(),mFraList,mStrList);
