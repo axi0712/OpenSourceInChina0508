@@ -101,6 +101,7 @@ public class Fragment_Mine extends BaseFragment {
 
                 }
             });
+            //
         } else {
             Toast.makeText(App.base, uid, Toast.LENGTH_SHORT).show();
             String image = mShared.getString("image", "");
