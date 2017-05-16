@@ -15,6 +15,7 @@
             android:layout_weight="1"
             app:tabSelectedTextColor="#24cf5f"
             app:tabIndicatorColor="#24cf5f"
+            app:tabTextColor="#24cf5f"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

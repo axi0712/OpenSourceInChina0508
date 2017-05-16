@@ -1,4 +1,4 @@
-package com.example.administrator.opensourceinchina0508.model.fragment.tweet;
+package com.example.administrator.opensourceinchina0508.controller.fragment.zonghe;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -19,7 +19,8 @@ import java.util.List;
  * Created by Administrator on 2017/5/9 0009.
  */
 
-public class Fragment_Tweet extends BaseFragment {
+public class Fragment_ZongHe extends BaseFragment {
+
     private TabLayout mTab;
     private ViewPager mPager;
     private List<Fragment> mFraList = new ArrayList<>();
@@ -27,26 +28,32 @@ public class Fragment_Tweet extends BaseFragment {
 
     @Override
     protected int layoutId() {
-        return R.layout.fragment_tweet;
+        return R.layout.fragment_zonghe;
     }
 
     @Override
     protected void initView(View view) {
-        mTab = (TabLayout) view.findViewById(R.id.fragment_tweet_tab);
-        mPager = (ViewPager) view.findViewById(R.id.fragment_tweet_viewpager);
-
+        mTab = (TabLayout) view.findViewById(R.id.fragment_zonghe_tab);
+        mPager = (ViewPager) view.findViewById(R.id.fragment_zonghe_viewpager);
     }
 
     @Override
     protected void initData() {
-        Fragment_Tweet_Hot hot = new Fragment_Tweet_Hot();
-        Fragment_Tweet_new news = new Fragment_Tweet_new();
+
+        Fragment_ZongHe_KaiYuan answer = new Fragment_ZongHe_KaiYuan();
+        Fragment_ZongHe_Hot hot = new Fragment_ZongHe_Hot();
+        Fragment_ZongHe_Blog blog = new Fragment_ZongHe_Blog();
+        Fragment_ZongHe_Recommend recommend = new Fragment_ZongHe_Recommend();
+        mFraList.add(answer);
         mFraList.add(hot);
-        mFraList.add(news);
-        mStrList.add("最新动弹");
-        mStrList.add("热门动弹");
-        mTab.setTabMode(TabLayout.MODE_FIXED);
-        TabLayoutAdapter mAdapter = new TabLayoutAdapter(getActivity().getSupportFragmentManager(),mFraList,mStrList);
+        mFraList.add(blog);
+        mFraList.add(recommend);
+        mStrList.add("开源资讯");
+        mStrList.add("热点");
+        mStrList.add("推荐博客");
+        mStrList.add("码云推荐");
+        mTab.setTabMode(TabLayout.MODE_SCROLLABLE);
+        TabLayoutAdapter mAdapter = new TabLayoutAdapter(getActivity().getSupportFragmentManager(), mFraList, mStrList);
         mPager.setAdapter(mAdapter);
         mPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab) {
             @Override
@@ -55,21 +62,6 @@ public class Fragment_Tweet extends BaseFragment {
             }
         });
         mTab.setupWithViewPager(mPager);
-
-    }
-
-    @Override
-    protected void updateTitleBar() {
-        if (App.base instanceof MainActivity) {
-            //显示
-            ((MainActivity) App.base).getmMainTextTitle().setVisibility(View.VISIBLE);
-            ((MainActivity) App.base).getmMainRelaTitle().setVisibility(View.VISIBLE);
-
-        }
-        if (App.base instanceof MainActivity) {
-            ((MainActivity) App.base).getmMainTextTitle().setText("动弹");
-        }
-
     }
 
     @Override
@@ -85,7 +77,21 @@ public class Fragment_Tweet extends BaseFragment {
     }
 
     @Override
+    protected void updateTitleBar() {
+     if (App.base instanceof MainActivity) {
+            //显示\
+            ((MainActivity) App.base).getmMainTextTitle().setVisibility(View.VISIBLE);
+            ((MainActivity) App.base).getmMainRelaTitle().setVisibility(View.VISIBLE);
+
+      }
+        if (App.base instanceof MainActivity) {
+            ((MainActivity) App.base).getmMainTextTitle().setText("综合");
+        }
+    }
+
+    @Override
     public void setParams(Bundle bundle) {
 
     }
+
 }

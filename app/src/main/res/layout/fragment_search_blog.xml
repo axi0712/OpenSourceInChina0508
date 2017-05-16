@@ -3,9 +3,9 @@
     android:background="#fff"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.androidkun.PullToRefreshRecyclerView
-        android:layerType="software"
-        android:id="@+id/fragment_tweet_new_pull"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.androidkun.PullToRefreshRecyclerView>
+<com.androidkun.PullToRefreshRecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/fragment_search_blog_pull"
+    ></com.androidkun.PullToRefreshRecyclerView>
 </LinearLayout>

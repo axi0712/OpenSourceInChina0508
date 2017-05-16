@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".model.activity.Activity_ZongHe_KaiYuan_Detail"/>
+        <activity android:name=".controller.activity.Activity_ZongHe_KaiYuan_Detail"/>
+        <activity android:name=".controller.fragment.zonghe.search.Activity_Search"/>
+        <activity android:name=".controller.fragment.zonghe.Activity_login"/>
+        <activity android:name=".controller.activity.Activity_ZongHe_Blog_Detail"/>
     </application>
 
 </manifest>

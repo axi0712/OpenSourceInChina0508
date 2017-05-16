@@ -1,9 +1,12 @@
 package com.example.administrator.opensourceinchina0508.model.http.http;
 
+import android.support.annotation.Nullable;
+
 import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -23,5 +26,5 @@ public interface RetrofitInter {
     Call<ResponseBody> parsingGet(@Header("Cookie") String cookie, @Url String url, @QueryMap Map<String, String> map);
     @FormUrlEncoded
     @POST
-    Call<ResponseBody> parsingPost(@Url String url, @QueryMap Map<String, String> map);
+    Call<ResponseBody> parsingPost(@Url String url, @Nullable@FieldMap Map<String, String> map);
 }

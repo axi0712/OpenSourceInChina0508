@@ -1,4 +1,4 @@
-package com.example.administrator.opensourceinchina0508.model.fragment.zonghe;
+package com.example.administrator.opensourceinchina0508.controller.fragment.tweet;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -19,34 +19,34 @@ import java.util.List;
  * Created by Administrator on 2017/5/9 0009.
  */
 
-public class Fragment_ZongHe extends BaseFragment {
-
-   private TabLayout mTab;
+public class Fragment_Tweet extends BaseFragment {
+    private TabLayout mTab;
     private ViewPager mPager;
     private List<Fragment> mFraList = new ArrayList<>();
     private List<String> mStrList = new ArrayList<>();
+
     @Override
     protected int layoutId() {
-        return R.layout.fragment_zonghe;
+        return R.layout.fragment_tweet;
     }
 
     @Override
     protected void initView(View view) {
-        mTab = (TabLayout) view.findViewById(R.id.fragment_zonghe_tab);
-        mPager = (ViewPager) view.findViewById(R.id.fragment_zonghe_viewpager);
+        mTab = (TabLayout) view.findViewById(R.id.fragment_tweet_tab);
+        mPager = (ViewPager) view.findViewById(R.id.fragment_tweet_viewpager);
 
     }
 
     @Override
     protected void initData() {
-
-        Fragment_ZongHe_KaiYuan answer = new Fragment_ZongHe_KaiYuan();
-
-        mFraList.add(answer);
-
-        mStrList.add("开源资讯");
-        mTab.setTabMode(TabLayout.MODE_SCROLLABLE);
-        TabLayoutAdapter mAdapter = new TabLayoutAdapter(getActivity().getSupportFragmentManager(), mFraList, mStrList);
+        Fragment_Tweet_Hot hot = new Fragment_Tweet_Hot();
+        Fragment_Tweet_new news = new Fragment_Tweet_new();
+        mFraList.add(hot);
+        mFraList.add(news);
+        mStrList.add("最新动弹");
+        mStrList.add("热门动弹");
+        mTab.setTabMode(TabLayout.MODE_FIXED);
+        TabLayoutAdapter mAdapter = new TabLayoutAdapter(getActivity().getSupportFragmentManager(),mFraList,mStrList);
         mPager.setAdapter(mAdapter);
         mPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab) {
             @Override
@@ -55,19 +55,9 @@ public class Fragment_ZongHe extends BaseFragment {
             }
         });
         mTab.setupWithViewPager(mPager);
+
     }
 
-    @Override
-    public void onShow() {
-        super.onShow();
-        updateTitleBar();
-    }
-
-    @Override
-    public void onHidden() {
-        super.onHidden();
-        updateTitleBar();
-    }
     @Override
     protected void updateTitleBar() {
         if (App.base instanceof MainActivity) {
@@ -79,6 +69,17 @@ public class Fragment_ZongHe extends BaseFragment {
         if (App.base instanceof MainActivity) {
             ((MainActivity) App.base).getmMainTextTitle().setText("动弹");
         }
+
+    }
+
+    @Override
+    public void onShow() {
+        super.onShow();
+    }
+
+    @Override
+    public void onHidden() {
+        super.onHidden();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.administrator.opensourceinchina0508.model.activity;
+package com.example.administrator.opensourceinchina0508.controller.activity;
 
 import android.content.Intent;
 import android.util.Log;
@@ -85,5 +85,10 @@ public class Activity_ZongHe_KaiYuan_Detail extends BaseActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.administrator.opensourceinchina0508.model.fragment.zonghe;
+package com.example.administrator.opensourceinchina0508.controller.fragment.zonghe;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,17 +18,15 @@ import android.widget.RadioButton;
 import com.androidkun.PullToRefreshRecyclerView;
 import com.androidkun.adapter.BaseAdapter;
 import com.androidkun.adapter.ViewHolder;
-import com.androidkun.callback.PullToRefreshListener;
 import com.example.administrator.opensourceinchina0508.App;
 import com.example.administrator.opensourceinchina0508.R;
-import com.example.administrator.opensourceinchina0508.model.activity.Activity_ZongHe_KaiYuan_Detail;
+import com.example.administrator.opensourceinchina0508.controller.activity.Activity_ZongHe_KaiYuan_Detail;
 import com.example.administrator.opensourceinchina0508.model.base.BaseFragment;
 import com.example.administrator.opensourceinchina0508.model.bean.ZongHe_KaiYuanBean;
 import com.example.administrator.opensourceinchina0508.model.http.http.MyCallBack;
 import com.example.administrator.opensourceinchina0508.model.http.http.Parsing;
 import com.example.administrator.opensourceinchina0508.model.http.http.ParsingImple;
 import com.example.administrator.opensourceinchina0508.model.util.Dates;
-import com.example.administrator.opensourceinchina0508.model.util.MyContentLinearLayoutManager;
 import com.example.administrator.opensourceinchina0508.model.util.UtilsData;
 import com.jude.rollviewpager.RollPagerView;
 import com.thoughtworks.xstream.XStream;
@@ -53,7 +51,7 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
     private final int CODE_START = 0;
     private final int CODE_STOP = 1;
     private int currentItem = 10000000;
-    private RadioButton mOne,mTwo,mThree;
+    private RadioButton mOne, mTwo, mThree;
     private Handler mHand = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -79,7 +77,7 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_viewpage,null);
+        v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_viewpage, null);
         mPager = (ViewPager) v.findViewById(R.id.fragment_viewpager);
         mView = (PullToRefreshRecyclerView) view.findViewById(R.id.fragment_zonghe_kaiyuan_pull);
         mOne = (RadioButton) v.findViewById(R.id.fragment_viewpager_circle_one);
@@ -90,59 +88,62 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
     @Override
     protected void initData() {
         LinearLayoutManager linear = new LinearLayoutManager(App.base);
-        getRetrofit();
-        mView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(),DividerItemDecoration.VERTICAL));
-        mView.setLayoutManager(new MyContentLinearLayoutManager(mView.getContext()));
+
 
         mView.addHeaderView(v);
-        mView.setPullRefreshEnabled(true);//下拉刷新
-        mView.setLoadingMoreEnabled(true);//上拉加载
-        mView.displayLastRefreshTime(true);//显示上次刷新的时间
-        //设置刷新回调
-        mView.setPullToRefreshListener(new PullToRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        pageIndex = 0;
-                        mList.clear();
-//                        for (int i = 1; i <= pageIndex; i++) {
-                        getRetrofit();
-//                        }
-                        mView.setRefreshComplete();
+//        mView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        mView.setLayoutManager(linear);
+//        mView.setLayoutManager(new MyContentLinearLayoutManager(mView.getContext()));
+//        mView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
 
-//                        mEditor.putInt("Index", pageIndex);
-//                        mEditor.commit();
-                    }
-                },2000);
-            }
-
-            @Override
-            public void onLoadMore() {
-                mView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        pageIndex++;
-                        getRetrofit();
-                        mView.setLoadMoreComplete();
-//                        mEditor.putInt("Index", pageIndex);
-//                        Log.i("加载", pageIndex + "");
-//                        mEditor.commit();
-                    }
-                }, 2000);
-            }
-        });
+//        mView.setPullRefreshEnabled(true);//下拉刷新
+//        mView.setLoadingMoreEnabled(true);//上拉加载
+//        mView.displayLastRefreshTime(true);//显示上次刷新的时间
+//        //设置刷新回调
+//        mView.setPullToRefreshListener(new PullToRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                mView.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        pageIndex = 0;
+//                        mList.clear();
+////                        for (int i = 1; i <= pageIndex; i++) {
+//                        getRetrofit();
+////                        }
+//                        mView.setRefreshComplete();
+//
+////                        mEditor.putInt("Index", pageIndex);
+////                        mEditor.commit();
+//                    }
+//                }, 2000);
+//            }
+//
+//            @Override
+//            public void onLoadMore() {
+//                mView.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        pageIndex++;
+//                        getRetrofit();
+//                        mView.setLoadMoreComplete();
+////                        mEditor.putInt("Index", pageIndex);
+////                        Log.i("加载", pageIndex + "");
+////                        mEditor.commit();
+//                    }
+//                }, 2000);
+//            }
+//        });
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                   if(position%list.size() == 0){
-                       mOne.setChecked(true);
-                   }else if (position%list.size() == 1){
-                       mTwo.setChecked(true);
-                   }else {
-                       mThree.setChecked(true);
-                   }
+                if (position % list.size() == 0) {
+                    mOne.setChecked(true);
+                } else if (position % list.size() == 1) {
+                    mTwo.setChecked(true);
+                } else {
+                    mThree.setChecked(true);
+                }
             }
 
             @Override
@@ -179,21 +180,23 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
     }
 
     private void getRetrofit() {
-        Map<String,String> map = new HashMap<>();
-        map.put("catalog","1");
-        map.put("pageIndex","1");
-        map.put("pageSize","100");
-        parsing.gets(UtilsData.URL+"action/api/news_list", map, new MyCallBack() {
+        Map<String, String> map = new HashMap<>();
+        map.put("catalog", "1");
+        map.put("pageIndex", "1");
+        map.put("pageSize", "20");
+        parsing.gets(UtilsData.URL + "action/api/news_list", map, new MyCallBack() {
             @Override
             public void onSuccess(String strSuccess) {
                 Log.d("MainActivitysss", strSuccess);
                 XStream xs = new XStream();
-                xs.alias("oschina",ZongHe_KaiYuanBean.class);
-                xs.alias("news",ZongHe_KaiYuanBean.NewsBean.class);
+                xs.alias("oschina", ZongHe_KaiYuanBean.class);
+                xs.alias("news", ZongHe_KaiYuanBean.NewsBean.class);
                 ZongHe_KaiYuanBean news = (ZongHe_KaiYuanBean) xs.fromXML(strSuccess);
                 Log.d("MainActivityasas", news.getNewslist().toString());
                 mList.addAll(news.getNewslist());
-                mView.setAdapter(new MyAdapter(getContext(),mList));
+                mView.setAdapter(new MyAdapter(getContext(), mList));
+                mView.addItemDecoration(new DividerItemDecoration(App.base,
+                        DividerItemDecoration.VERTICAL));
             }
 
             @Override
@@ -202,15 +205,18 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
             }
         });
     }
+
     @Override
     protected void updateTitleBar() {
 
     }
 
+
     @Override
     public void setParams(Bundle bundle) {
 
     }
+
     class MyAdapter extends BaseAdapter<ZongHe_KaiYuanBean.NewsBean> {
 
 
@@ -220,18 +226,18 @@ public class Fragment_ZongHe_KaiYuan extends BaseFragment {
 
         @Override
         public void convert(ViewHolder holder, final ZongHe_KaiYuanBean.NewsBean newstypeBean) {
-            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_title,newstypeBean.getTitle());
-            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_message,newstypeBean.getBody());
-            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_author,newstypeBean.getAuthor());
-            holder.setText(R.id.fragment_zonghe_kaiyuan_item_count_pinlun,newstypeBean.getCommentCount());
+            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_title, newstypeBean.getTitle());
+            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_message, newstypeBean.getBody());
+            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_author, newstypeBean.getAuthor());
+            holder.setText(R.id.fragment_zonghe_kaiyuan_item_count_pinlun, newstypeBean.getCommentCount());
             String time = Dates.getDate(newstypeBean.getPubDate());
-            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_time,time);
+            holder.setText(R.id.fragment_zonghe_kaiyuan_item_text_time, time);
             holder.setOnclickListener(R.id.fragment_zonghe_kaiyuan_item_zong, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent in = new Intent(getContext(),Activity_ZongHe_KaiYuan_Detail.class);
-                    in.putExtra("commentCount",newstypeBean.getCommentCount());
-                    in.putExtra("id",newstypeBean.getId());
+                    Intent in = new Intent(getContext(), Activity_ZongHe_KaiYuan_Detail.class);
+                    in.putExtra("commentCount", newstypeBean.getCommentCount());
+                    in.putExtra("id", newstypeBean.getId());
                     startActivity(in);
                 }
             });

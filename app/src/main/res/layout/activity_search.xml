@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fff"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+   <EditText
+       android:drawableLeft="@drawable/search_icon"
+       android:hint="搜索博客、软件、资讯"
+       android:drawableRight="@drawable/ic_clear"
+       android:textColorHint="#b1b1b1"
+       android:layout_margin="5dp"
+       android:layout_weight="9.5"
+       android:textColor="#b1b1b1"
+       android:singleLine="true"
+       android:imeOptions="actionSearch"
+       android:id="@+id/search_edit"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/login_ed"
+       />
+    <TextView
+        android:layout_weight="0.5"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:layout_toRightOf="@id/search_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:id="@+id/search_text_quxiao"
+        android:textColor="#b1b1"
+        android:textSize="25dp"
+        /></LinearLayout>
+    <FrameLayout
+        android:id="@+id/search_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></FrameLayout>
+</LinearLayout>

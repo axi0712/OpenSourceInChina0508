@@ -58,11 +58,9 @@ public class FragmentBuilder {
             transaction.hide(App.lastFragment);
         }
         //判断是否已经添加 如果没有添加过就添加
-
-
+        transaction.show(fragment);
         //已经添加就调用show方法显示；
         transaction.addToBackStack(simpleName);
-        transaction.show(fragment);
         return this;
     }
 

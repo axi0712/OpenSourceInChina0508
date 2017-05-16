@@ -22,7 +22,7 @@
             android:layout_height="8dp"
             android:background="@drawable/radiobutton"
             android:button="@null"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="5dp"
             />
         <RadioButton
             android:id="@+id/fragment_viewpager_circle_two"
@@ -30,7 +30,7 @@
             android:layout_height="8dp"
             android:background="@drawable/radiobutton"
             android:button="@null"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="5dp"
             />
         <RadioButton
             android:id="@+id/fragment_viewpager_circle_three"
@@ -38,7 +38,7 @@
             android:layout_height="8dp"
             android:background="@drawable/radiobutton"
             android:button="@null"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="5dp"
             />
     </RadioGroup>
 </RelativeLayout>

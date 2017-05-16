@@ -15,17 +15,17 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(layoutId(),container,false);
-        initView(v);
-        initData();
-        updateTitleBar();
+        View v = inflater.inflate(layoutId(), container, false);
+         initView(v);
+         initData();
+          updateTitleBar();
         return v;
     }
 
 
-
     /**
      * 加载布局
+     *
      * @return
      */
     protected abstract int layoutId();
@@ -39,8 +39,10 @@ public abstract class BaseFragment extends Fragment {
      * 初始化数据（对象）
      */
     protected abstract void initData();
+
     //更改标题
     protected abstract void updateTitleBar();
+
     public abstract void setParams(Bundle bundle);
 
     @Override
@@ -51,17 +53,20 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if(hidden){
+        if (hidden) {
             onHidden();
-        }else
+        } else {
             onShow();
+        }
     }
-    public void onHidden(){
 
+    public void onHidden() {
     }
-    public void onShow(){
 
+    public void onShow() {
+        updateTitleBar();
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -1,71 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_zonghe_kaiyuan_item_zong"
+    android:background="#fff"
+    android:id="@+id/fragment_zonghe_recommend_item_zong"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#ffffff"
-    android:orientation="vertical">
-
-    <ImageView
-
-        android:id="@+id/fragment_zonghe_kaiyuan_item_imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:src="@drawable/ic_label_today" />
-
+    android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/fragment_zonghe_kaiyuan_item_text_title"
+        android:id="@+id/fragment_zonghe_recommend_item_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_toRightOf="@id/fragment_zonghe_kaiyuan_item_imageview"
         android:padding="5dp"
         android:text="vdsbdvbs"
         android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/fragment_zonghe_kaiyuan_item_text_message"
+        android:id="@+id/fragment_zonghe_recommend_item_text_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fragment_zonghe_kaiyuan_item_text_title"
+        android:layout_below="@id/fragment_zonghe_recommend_item_text_title"
         android:padding="5dp"
         android:text="buidsbv"
         android:textColor="#b1b1b1"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/fragment_zonghe_kaiyuan_item_text_aite"
+        android:id="@+id/fragment_zonghe_recommend_item_text_aite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fragment_zonghe_kaiyuan_item_text_message"
+        android:layout_below="@id/fragment_zonghe_recommend_item_text_message"
         android:padding="5dp"
         android:text="/@"
         android:textColor="#b1b1b1" />
 
     <TextView
-        android:id="@+id/fragment_zonghe_kaiyuan_item_text_author"
+        android:id="@+id/fragment_zonghe_recommend_item_text_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/fragment_zonghe_kaiyuan_item_text_aite"
-        android:layout_alignBottom="@+id/fragment_zonghe_kaiyuan_item_text_aite"
-        android:layout_toEndOf="@+id/fragment_zonghe_kaiyuan_item_text_aite"
-        android:layout_toRightOf="@+id/fragment_zonghe_kaiyuan_item_text_aite"
+        android:layout_alignBaseline="@+id/fragment_zonghe_recommend_item_text_aite"
+        android:layout_alignBottom="@+id/fragment_zonghe_recommend_item_text_aite"
+        android:layout_toEndOf="@+id/fragment_zonghe_recommend_item_text_aite"
+        android:layout_toRightOf="@+id/fragment_zonghe_recommend_item_text_aite"
         android:padding="5dp"
         android:text="vbdsiv"
         android:textColor="#b1b1b1" />
 
     <TextView
-        android:id="@+id/fragment_zonghe_kaiyuan_item_text_time"
+        android:id="@+id/fragment_zonghe_recommend_item_text_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/fragment_zonghe_kaiyuan_item_text_author"
-        android:layout_alignBottom="@+id/fragment_zonghe_kaiyuan_item_text_author"
+        android:layout_alignBaseline="@+id/fragment_zonghe_recommend_item_text_author"
+        android:layout_alignBottom="@+id/fragment_zonghe_recommend_item_text_author"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
-        android:layout_toEndOf="@+id/fragment_zonghe_kaiyuan_item_text_author"
-        android:layout_toRightOf="@+id/fragment_zonghe_kaiyuan_item_text_author"
+        android:layout_toEndOf="@+id/fragment_zonghe_recommend_item_text_author"
+        android:layout_toRightOf="@+id/fragment_zonghe_recommend_item_text_author"
         android:padding="5dp"
         android:text="2017-05-09 20:03:00"
         android:textColor="#b1b1b1" />
@@ -76,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/fragment_zonghe_kaiyuan_item_text_time"
+        android:layout_alignTop="@id/fragment_zonghe_recommend_item_text_time"
         android:padding="5dp">
 
         <ImageView
@@ -87,7 +76,7 @@
             android:src="@drawable/ic_comment_30" />
 
         <TextView
-            android:id="@+id/fragment_zonghe_kaiyuan_item_count_pinlun"
+            android:id="@+id/fragment_zonghe_recommend_item_count_pinlun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/main_news_er"
@@ -100,6 +89,4 @@
         android:layout_height="1dp"
         android:layout_below="@id/qqqqqqqqq"
         android:background="#b1b1b1" />
-
-
 </RelativeLayout>

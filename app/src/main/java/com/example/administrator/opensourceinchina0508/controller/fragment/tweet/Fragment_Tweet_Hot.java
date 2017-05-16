@@ -1,4 +1,4 @@
-package com.example.administrator.opensourceinchina0508.model.fragment.tweet;
+package com.example.administrator.opensourceinchina0508.controller.fragment.tweet;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -34,22 +34,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2017/5/10 0010.
+ * Created by Administrator on 2017/5/9 0009.
  */
 
-public class Fragment_Tweet_new extends BaseFragment {
+public class Fragment_Tweet_Hot extends BaseFragment {
     private PullToRefreshRecyclerView mView;
     private List<Tweet_HotBean.TweetBean> mList = new ArrayList<>();
     private Parsing par = new ParsingImple();
     private int pageIndex = 1;
     @Override
     protected int layoutId() {
-        return R.layout.fragment_tweet_new;
+        return R.layout.fragment_tweet_hot;
     }
 
     @Override
     protected void initView(View view) {
-        mView = (PullToRefreshRecyclerView) view.findViewById(R.id.fragment_tweet_new_pull);
+       mView = (PullToRefreshRecyclerView) view.findViewById(R.id.fragment_tweet_hot_pull);
+
     }
 
     @Override
@@ -98,18 +99,9 @@ public class Fragment_Tweet_new extends BaseFragment {
         });
     }
 
-    @Override
-    protected void updateTitleBar() {
-
-    }
-
-    @Override
-    public void setParams(Bundle bundle) {
-
-    }
     private void getRe() {
         Map<String,String> map = new HashMap<>();
-        map.put("uid","0");
+        map.put("uid","-1");
         map.put("pageIndex","0");
         map.put("pageSize","20");
         par.gets(UtilsData.URL + "action/api/tweet_list", map, new MyCallBack() {
@@ -132,9 +124,19 @@ public class Fragment_Tweet_new extends BaseFragment {
         });
 
     }
-    class MyAdapter extends BaseAdapter<Tweet_HotBean.TweetBean> {
 
-        public MyAdapter(Context context, List<Tweet_HotBean.TweetBean> datas) {
+    @Override
+    protected void updateTitleBar() {
+
+    }
+
+    @Override
+    public void setParams(Bundle bundle) {
+
+    }
+    class MyAdapter extends BaseAdapter<Tweet_HotBean.TweetBean>{
+
+        public MyAdapter(Context context,  List<Tweet_HotBean.TweetBean> datas) {
             super(context, R.layout.fragment_tweet_hot_item, datas);
         }
 

@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <com.androidkun.PullToRefreshRecyclerView
-        android:id="@+id/fragment_zonghe_kaiyuan_pull"
+        android:id="@+id/fragment_zonghe_recommend_pull"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layerType="software"></com.androidkun.PullToRefreshRecyclerView>

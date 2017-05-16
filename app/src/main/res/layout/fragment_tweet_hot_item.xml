@@ -99,5 +99,10 @@
                 android:paddingRight="10dp"
                 android:src="@drawable/ic_thumb_normal" />
         </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#b1b1b1" />
     </LinearLayout>
+
 </LinearLayout>
